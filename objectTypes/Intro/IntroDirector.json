@@ -1,0 +1,53 @@
+{
+	"name": "IntroDirector",
+	"plugin-id": "Sprite",
+	"sid": 872938638315306,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "idSeleccionado",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 151764153781578
+		},
+		{
+			"name": "maxItemsMenu",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 770626568758228
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 100,
+						"height": 100,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9427383,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 822184725220943,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

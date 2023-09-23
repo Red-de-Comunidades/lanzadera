@@ -1,0 +1,231 @@
+{
+	"name": "Intro",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "MenuItems",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "shablagooacad",
+						"size": 36,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 26,
+					"instanceVariables": {
+						"id": 2,
+						"opciones": "360,PS4",
+						"opcionId": 0,
+						"Nopciones": 2,
+						"toolTip": "Perfil de joystick"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 460,
+						"y": 115,
+						"width": 333,
+						"height": 121,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuItems",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "shablagooacad",
+						"size": 36,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 27,
+					"instanceVariables": {
+						"id": 1,
+						"opciones": "Sí,No",
+						"opcionId": 0,
+						"Nopciones": 2,
+						"toolTip": "Bloquear teclas especiales del teclado"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 460,
+						"y": 288,
+						"width": 333,
+						"height": 121,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "MenuItems",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "shablagooacad",
+						"size": 36,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 28,
+					"instanceVariables": {
+						"id": 0,
+						"opciones": "",
+						"opcionId": 0,
+						"Nopciones": 6,
+						"toolTip": ""
+					},
+					"behaviors": {},
+					"world": {
+						"x": 460,
+						"y": 480,
+						"width": 333,
+						"height": 121,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "IntroDirector",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 29,
+					"instanceVariables": {
+						"idSeleccionado": 0,
+						"maxItemsMenu": 3
+					},
+					"behaviors": {},
+					"world": {
+						"x": -2,
+						"y": -123,
+						"width": 100,
+						"height": 100,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 229321078969855,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0,
+				0,
+				0,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 881295808101032,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 1280,
+	"height": 720,
+	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": "Intro"
+}

@@ -1,0 +1,276 @@
+{
+	"name": "Intro",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Intro",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 533023136568588,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "IntroDirector",
+							"sid": 346033126063965,
+							"parameters": {
+								"instance-variable": "idSeleccionado",
+								"value": "IntroDirector.idSeleccionado=IntroDirector.maxItemsMenu-1? 0:IntroDirector.idSeleccionado+1"
+							}
+						}
+					],
+					"sid": 567735653522938
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 895561743683733,
+							"parameters": {
+								"key": 40
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "IntroDirector",
+							"sid": 633819585380726,
+							"parameters": {
+								"instance-variable": "idSeleccionado",
+								"value": "IntroDirector.idSeleccionado=0? IntroDirector.maxItemsMenu-1:IntroDirector.idSeleccionado-1"
+							}
+						}
+					],
+					"sid": 336435110619184
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 313170243106138,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [],
+					"sid": 219091066607612,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuItems",
+									"sid": 827737720827269,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "IntroDirector.idSeleccionado"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MenuItems",
+									"sid": 202458437797292,
+									"parameters": {
+										"instance-variable": "opcionId",
+										"value": "MenuItems.opcionId=0? MenuItems.Nopciones-1:MenuItems.opcionId-1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "MenuItems",
+									"sid": 390982400406182,
+									"parameters": {
+										"text": "tokenat(MenuItems.opciones,MenuItems.opcionId,\",\")"
+									}
+								}
+							],
+							"sid": 993413297371825
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 248096002111838,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [],
+					"sid": 659155546299271,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "MenuItems",
+									"sid": 407267579949500,
+									"parameters": {
+										"instance-variable": "id",
+										"comparison": 0,
+										"value": "IntroDirector.idSeleccionado"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "MenuItems",
+									"sid": 224023297091120,
+									"parameters": {
+										"instance-variable": "opcionId",
+										"value": "MenuItems.opcionId=MenuItems.Nopciones-1? 0:MenuItems.opcionId+1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "MenuItems",
+									"sid": 927465590668945,
+									"parameters": {
+										"text": "tokenat(MenuItems.opciones,MenuItems.opcionId,\",\")"
+									}
+								}
+							],
+							"sid": 256743931546493
+						}
+					]
+				}
+			],
+			"sid": 777379986815382
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 124056330049274,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 859811330888850
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 801087193526113
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 748350296947453,
+					"parameters": {
+						"key": "\"perfilJoy\""
+					}
+				},
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 736547902402038,
+					"parameters": {
+						"key": "\"blockKeyboard\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "MenuItems",
+					"sid": 988285976698241,
+					"parameters": {
+						"text": "tokenat(MenuItems.opciones,MenuItems.opcionId,\",\")"
+					}
+				}
+			],
+			"sid": 524585912917497
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 915303915606103,
+					"parameters": {
+						"key": "\"perfilJoy\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 887402323598405
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-get",
+					"objectClass": "LocalStorage",
+					"sid": 704188558335344,
+					"parameters": {
+						"key": "\"blockKeyboard\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 870012840014732
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 797503969480864,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 755833736738764,
+					"parameters": {
+						"layout": "Main"
+					}
+				}
+			],
+			"sid": 626582610754994
+		}
+	],
+	"sid": 679807872916337
+}

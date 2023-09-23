@@ -1,0 +1,463 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 35800,
+	"name": "LanzaderaVJ",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Array",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "NodeWebkit",
+			"name": "NW.js",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "gamepad",
+			"name": "Gamepad",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
+	"uniqueId": "9i4pokdpxaj",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"NWjs",
+					"JSON",
+					"DebugTXT",
+					"AJAX",
+					"Array",
+					"Gamepad",
+					"Keyboard",
+					"DebugCommand",
+					"Audio",
+					"Browser",
+					"LocalStorage"
+				],
+				"subfolders": [],
+				"name": "Sistema"
+			},
+			{
+				"items": [
+					"GameArt",
+					"GameMenu",
+					"CurtainDirector",
+					"BG",
+					"DatoNombreProye",
+					"BaseTexto",
+					"iconosAnim",
+					"DatoTipoViolencia",
+					"IconoMICA",
+					"Joystick",
+					"DatoContacto"
+				],
+				"subfolders": [],
+				"name": "Main"
+			},
+			{
+				"items": [
+					"MenuItems",
+					"IntroDirector"
+				],
+				"subfolders": [],
+				"name": "Intro"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Main",
+			"Intro"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Main",
+			"Funciones",
+			"Intro"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "Notification_futuristic_beep_05.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 934517332107501,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "UI_Mechanical_Move_40.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 985933945197635,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Mouser_o.ttf",
+					"type": "application/font-sfnt",
+					"sid": 334629989409754,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "shablagooacad.ttf",
+					"type": "application/font-sfnt",
+					"sid": 650774889504731,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "shablagoo3d.ttf",
+					"type": "application/font-sfnt",
+					"sid": 424288716453409,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gameshow Italic.otf",
+					"type": "application/font-sfnt",
+					"sid": 287194370886127,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gameshow Italic.ttf",
+					"type": "application/font-sfnt",
+					"sid": 141948145225193,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gameshow.otf",
+					"type": "application/font-sfnt",
+					"sid": 217409614068157,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gameshow.ttf",
+					"type": "application/font-sfnt",
+					"sid": 550586353579290,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Square Game.otf",
+					"type": "application/font-sfnt",
+					"sid": 414222414524252,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "GAME_glm.ttf",
+					"type": "application/font-sfnt",
+					"sid": 266548036310967,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "game_over.ttf",
+					"type": "application/font-sfnt",
+					"sid": 266737532987131,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "GameCube.ttf",
+					"type": "application/font-sfnt",
+					"sid": 241943094976304,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gamejot.ttf",
+					"type": "application/font-sfnt",
+					"sid": 900485586969034,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Gameplay.ttf",
+					"type": "application/font-sfnt",
+					"sid": 758429097118839,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 989946245681329,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 939299850826357,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 795470072913191,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 307000229115288,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 142660438346232,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 920338433560472,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 126082403390171,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "JuegosDB.json",
+					"type": "application/json",
+					"sid": 693879439599162,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"Timeline 1"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "FundAV",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "landscape",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"autoReloadScriptsOnPreview": false,
+		"exportFileStructure": "flat",
+		"uidAllocationMode": "increment"
+	},
+	"viewportWidth": 1280,
+	"viewportHeight": 720,
+	"firstLayout": "Main"
+}

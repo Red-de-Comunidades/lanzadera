@@ -1,0 +1,132 @@
+{
+	"name": "IconoMICA",
+	"plugin-id": "Sprite",
+	"sid": 481228372057032,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 819035047694234
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 423,
+						"height": 193,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "C:\\Users\\Berne\\Downloads\\mica.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5054763,
+						"collisionPoly": {
+							"points": [
+								0.011428571428571429,
+								0.019417475728155338,
+								0.5,
+								0.05825242718446602,
+								0.9257142857142857,
+								0.11650485436893204,
+								0.9542857142857143,
+								0.5,
+								0.9142857142857143,
+								0.8543689320388349,
+								0.5,
+								0.7669902912621359,
+								0.08,
+								0.8543689320388349,
+								0.011428571428571429,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 930535360102878,
+				"name": "Multiversos",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4342602,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 558121560191348,
+				"name": "MICA",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 192,
+						"height": 192,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2422265,
+						"collisionPoly": {
+							"points": [
+								0.15104166666666666,
+								0.15104166666666666,
+								0.5,
+								0.005208333333333333,
+								0.8489583333333334,
+								0.15104166666666666,
+								0.9895833333333334,
+								0.5,
+								0.8489583333333334,
+								0.8489583333333334,
+								0.5,
+								0.9895833333333334,
+								0.15104166666666666,
+								0.8489583333333334,
+								0.005208333333333333,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 762589743140030,
+				"name": "RedComVJ",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,1205 @@
+{
+	"name": "Funciones",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "Agregué la función \"WinActivate\" a AutoHotKey para reforzar que vuelva a la ventana de la lanzadera"
+		},
+		{
+			"eventType": "comment",
+			"text": "Hay un doble llamado a cerrar los procesos porque los de UT se resisten"
+		},
+		{
+			"functionName": "BuildMenu",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "write-file",
+					"objectClass": "NWjs",
+					"sid": 172070123834200,
+					"parameters": {
+						"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+						"contents": "\"joy\"&momentaneoJoyKeyEXIT&\"::\"&newline&\n\"1joy\"&momentaneoJoyKeyEXIT&\"::\"&newline&\n\"2joy\"&momentaneoJoyKeyEXIT&\"::\"&newline&\n\"F12::\"&newline&\n\"FileDelete,\"&NWjs.AppFolder&\"runninggame.txt\"&newline"
+					}
+				},
+				{
+					"id": "append-text",
+					"objectClass": "DebugTXT",
+					"sid": 206869536665738,
+					"disabled": true,
+					"parameters": {
+						"text": "\"Starting Debug\""
+					}
+				}
+			],
+			"sid": 170547876254284,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 710827309687419,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "append-file",
+							"objectClass": "NWjs",
+							"sid": 211906716007747,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+								"contents": "\"WinActivate, Lanzadera\"&newline"
+							}
+						}
+					],
+					"sid": 244813843481971
+				},
+				{
+					"eventType": "variable",
+					"name": "loopindexlocal",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 478826153638171
+				},
+				{
+					"eventType": "variable",
+					"name": "processKillerString",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 606975624663413
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 667985649083996,
+							"parameters": {
+								"path": "\"juegos\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "append-text",
+							"objectClass": "DebugTXT",
+							"sid": 199252936648879,
+							"disabled": true,
+							"parameters": {
+								"text": "newline&loopindex&\"-\""
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "DebugTXT",
+							"sid": 663868535918920,
+							"disabled": true,
+							"parameters": {
+								"text": "newline&JSON.CurrentKey"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 377751429622656,
+							"parameters": {
+								"variable": "listedGames",
+								"value": "1"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 172632118875706,
+							"parameters": {
+								"object-to-create": "GameMenu",
+								"layer": "\"Main\"",
+								"x": "LayoutWidth*2",
+								"y": "-LayoutHeight*2",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameMenu",
+							"sid": 321247373291809,
+							"parameters": {
+								"instance-variable": "id",
+								"value": "loopindexlocal"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameMenu",
+							"sid": 246209053680723,
+							"parameters": {
+								"instance-variable": "name",
+								"value": "JSON.Get(\".nombre\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameMenu",
+							"sid": 698045877958227,
+							"parameters": {
+								"instance-variable": "dev",
+								"value": "JSON.Get(\".desarrollador\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameMenu",
+							"sid": 225341539607777,
+							"parameters": {
+								"instance-variable": "type",
+								"value": "JSON.Get(\".categoria\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameMenu",
+							"sid": 912838034233127,
+							"parameters": {
+								"instance-variable": "violencia",
+								"value": "JSON.Get(\".violencia\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GameMenu",
+							"sid": 718000248866653,
+							"parameters": {
+								"instance-variable": "contacto",
+								"value": "JSON.Get(\".contacto\")"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "GameMenu",
+							"sid": 594423861161665,
+							"parameters": {
+								"frame-number": "loopindexlocal"
+							}
+						},
+						{
+							"id": "load-image-from-url",
+							"objectClass": "GameMenu",
+							"sid": 708597883821970,
+							"parameters": {
+								"uri": "NWjs.AppFolder&\"juegos\\\"&JSON.Get(\".carpeta\")&\"\\\"&\"menu.png\"",
+								"size": "resize-to-image-size",
+								"cross-origin": "anonymous"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "DebugTXT",
+							"sid": 302295319091151,
+							"disabled": true,
+							"parameters": {
+								"text": "listedGames&\"-\"&GameMenu.name"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "GameArt",
+							"sid": 165930584709766,
+							"parameters": {
+								"frame-number": "loopindexlocal"
+							}
+						},
+						{
+							"id": "load-image-from-url",
+							"objectClass": "GameArt",
+							"sid": 221210262392872,
+							"parameters": {
+								"uri": "NWjs.AppFolder&\"juegos\\\"&JSON.Get(\".carpeta\")&\"\\\"&\"main.png\"",
+								"size": "resize-to-image-size",
+								"cross-origin": "anonymous"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 903253187135362,
+							"parameters": {
+								"variable": "loopindexlocal",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 284760860220558,
+							"parameters": {
+								"variable": "processKillerString",
+								"value": "left(JSON.Get(\".ejecutable\"), len(JSON.Get(\".ejecutable\"))-3)"
+							}
+						},
+						{
+							"id": "append-file",
+							"objectClass": "NWjs",
+							"sid": 714324162810126,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+								"contents": "\"Process,Close,\"&processKillerString&\"exe\"&newline"
+							}
+						},
+						{
+							"id": "append-file",
+							"objectClass": "NWjs",
+							"sid": 480362394067099,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+								"contents": "\"Process,Close,\"&processKillerString&\"exe\"&newline"
+							}
+						}
+					],
+					"sid": 409386453421197
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 942578880191874
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "CurtainDirector",
+							"sid": 728864008295411,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "0.25",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "GameArt",
+							"sid": 842710957216823,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "0.25",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"callFunction": "ArrangeGameMenu",
+							"sid": 302235848133277
+						},
+						{
+							"id": "append-file",
+							"objectClass": "NWjs",
+							"sid": 703189703939957,
+							"disabled": true,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+								"contents": "\"Process,Close,chrome.exe\"&newline&\n\"Process,Close,firefox.exe\"&newline&\n\"Process,Close,edge.exe\"&newline\n"
+							}
+						},
+						{
+							"id": "append-file",
+							"objectClass": "NWjs",
+							"sid": 440184325160956,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+								"contents": "\"WinActivate, Lanzadera\"&newline"
+							}
+						},
+						{
+							"id": "append-file",
+							"objectClass": "NWjs",
+							"sid": 273930516788701,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\"",
+								"contents": "\"return\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 429805650661204,
+							"disabled": true,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\""
+							}
+						}
+					],
+					"sid": 291210621098191
+				},
+				{
+					"eventType": "comment",
+					"text": "Detuve la ejecución en runtime de los scripts autohotkey porque a veces al parecer hacen conflicto y dejan de funcionar"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-in-preview",
+							"objectClass": "System",
+							"sid": 784702972905810,
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 364054577795334,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\taskKiller.ahk\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 202911374931624,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\blocktaskbar.ahk\""
+							}
+						}
+					],
+					"sid": 502050280412108,
+					"disabled": true
+				}
+			]
+		},
+		{
+			"functionName": "ArrangeGameMenu",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "GameMenu",
+					"sid": 981123032850519,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "position",
+						"end-x": "1000+(GameMenu.id-SelectedGameID)*100",
+						"end-y": "LayoutHeight/2+(GameMenu.id-SelectedGameID)*-200",
+						"time": "1",
+						"ease": "easeoutback",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 755213978216255,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "delayTransicion",
+					"type": "number",
+					"initialValue": "0.25",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 937803015964076
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "GameMenu",
+							"sid": 922210290514585,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 0,
+								"value": "SelectedGameID"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 304904934990442
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "GameMenu",
+							"sid": 250634152652333,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "scale",
+								"end-x": "1.2",
+								"end-y": "1.2",
+								"time": "delayTransicion*2",
+								"ease": "easeinoutsine",
+								"destroy-on-complete": "no",
+								"loop": "yes",
+								"ping-pong": "yes",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "DatoNombreProye",
+							"sid": 296991797443123,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "delayTransicion",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "DatoTipoViolencia",
+							"sid": 956605416547275,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "delayTransicion",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 937007223697915,
+							"parameters": {
+								"seconds": "delayTransicion"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DatoNombreProye",
+							"sid": 337434378906650,
+							"parameters": {
+								"text": "GameMenu.name&newline\n&\"(\"&GameMenu.type&\")\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DatoContacto",
+							"sid": 864673772031762,
+							"parameters": {
+								"text": "\"[color=#ffef96]\"&GameMenu.contacto"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DatoTipoViolencia",
+							"sid": 897082341572607,
+							"parameters": {
+								"text": "\"[color=#9e9e9e]\"&GameMenu.dev"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "DatoTipoViolencia",
+							"sid": 568342074634400,
+							"parameters": {
+								"text": "GameMenu.violencia=\"si\"?\" - [color=#FD4E45]Violencia explicita y/o lenguaje adulto[/color]\":\"\""
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "DatoNombreProye",
+							"sid": 867704591183228,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "delayTransicion",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "DatoTipoViolencia",
+							"sid": 597698617978494,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "100",
+								"time": "delayTransicion",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 666927567891799
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "GameMenu",
+							"sid": 228938981104957,
+							"parameters": {
+								"instance-variable": "id",
+								"comparison": 1,
+								"value": "SelectedGameID"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 993523051823458
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "GameMenu",
+							"sid": 917776276307915,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "scale",
+								"end-x": "1",
+								"end-y": "1",
+								"time": "1",
+								"ease": "easeoutback",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 933156231899676
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 399522498578080,
+							"parameters": {
+								"path": "\"juegos\""
+							}
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 532594821561881,
+							"parameters": {
+								"path": "\".ID\"",
+								"cmp": 0,
+								"value": "SelectedGameID"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 963560280749106
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "tween-one-property",
+							"objectClass": "GameArt",
+							"sid": 105317734008645,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "0",
+								"time": "delayTransicion",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 292926651696917,
+							"parameters": {
+								"seconds": "delayTransicion"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "GameArt",
+							"sid": 355793427397007,
+							"parameters": {
+								"frame-number": "SelectedGameID"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "GameArt",
+							"sid": 374935922030352,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetOpacity",
+								"end-value": "90",
+								"time": "delayTransicion",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no",
+								"repeat-count": "1"
+							}
+						}
+					],
+					"sid": 778730565715162
+				}
+			]
+		},
+		{
+			"functionName": "RunGame",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "tween-one-property",
+					"objectClass": "Joystick",
+					"sid": 574522798833008,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "offsetOpacity",
+						"end-value": "100",
+						"time": "0.5",
+						"ease": "default",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 346448490085218,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "processRunningString",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 109186287906587
+				},
+				{
+					"eventType": "variable",
+					"name": "joyToKeyProfile",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 849731017038710
+				},
+				{
+					"eventType": "comment",
+					"text": "Ver de resolver el tema de ejecutables con espacios"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 714614386197511,
+							"parameters": {
+								"path": "\"juegos\""
+							}
+						},
+						{
+							"id": "compare-value",
+							"objectClass": "JSON",
+							"sid": 252349389835625,
+							"parameters": {
+								"path": "\".id\"",
+								"cmp": 0,
+								"value": "SelectedGameID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 377319753495380,
+							"disabled": true,
+							"parameters": {
+								"variable": "joyToKeyProfile",
+								"value": "NWjs.AppFolder&\"joytokey\\joytokey.exe \""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 374734729165066,
+							"disabled": true,
+							"parameters": {
+								"variable": "joyToKeyProfile",
+								"value": "JSON.Get(\".perfilcontrol\")=\"\"? \"Empty\":JSON.Get(\".perfilcontrol\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 989925115576951,
+							"parameters": {
+								"variable": "state",
+								"value": "\"inGame\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 487050065260275,
+							"parameters": {
+								"variable": "activeGame",
+								"value": "JSON.Get(\".ejecutable\")"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 155872351353569,
+							"parameters": {
+								"variable": "processRunningString",
+								"value": "NWjs.AppFolder&\"\\juegos\\\"&JSON.Get(\".carpeta\")&\"\\\"&JSON.Get(\".ejecutable\")"
+							}
+						},
+						{
+							"id": "append-text",
+							"objectClass": "DebugTXT",
+							"sid": 421044058513596,
+							"parameters": {
+								"text": "\"-\"&quotation&processRunningString&quotation"
+							}
+						}
+					],
+					"sid": 983870374418916
+				},
+				{
+					"eventType": "comment",
+					"text": "Hacer un profile de autohotkey que mantenga andando en focus la app que lanzaste hasta que decidas matarla"
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 501156392046004,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 969430083958187,
+							"disabled": true,
+							"parameters": {
+								"path": "quotation&quotation&joyToKeyProfile&momentaneoPerfilJoy&quotation&quotation"
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 161116598794955,
+							"parameters": {
+								"path": "quotation&processRunningString&quotation"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 289575852402118,
+							"parameters": {
+								"variable": "state",
+								"value": "\"inGameFull\""
+							}
+						},
+						{
+							"id": "write-file",
+							"objectClass": "NWjs",
+							"sid": 307700297983778,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\runninggame.txt\"",
+								"contents": "\"\""
+							}
+						}
+					],
+					"sid": 546000328673675
+				}
+			]
+		},
+		{
+			"functionName": "IconAnim",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "type",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 442825452545895
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "tween-two-properties",
+					"objectClass": "IconoMICA",
+					"sid": 459526940734396,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "scale",
+						"end-x": "1.1",
+						"end-y": "1.1",
+						"time": "0.5",
+						"ease": "easeinoutsine",
+						"destroy-on-complete": "no",
+						"loop": "no",
+						"ping-pong": "yes",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 974025027799707,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 364119657885563,
+							"parameters": {
+								"object": "iconosAnim"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 786355602040886,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 967309462251511,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "iconosAnim",
+									"sid": 600227727479065,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "330",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 826222420709587
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "iconosAnim",
+									"sid": 819735012129939,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "30",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 942210070719253
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 996539605853067,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "iconosAnim",
+									"sid": 228991657008039,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "scale",
+										"end-x": "1.1",
+										"end-y": "1.1",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 971790905392774
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "iconosAnim",
+									"sid": 706908901385057,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "scale",
+										"end-x": "0.9",
+										"end-y": "0.9",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 201568375980888
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 787457007123534,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "iconosAnim",
+									"sid": 348870617062346,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "iconosAnim.X+20",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 673872545167884
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "iconosAnim",
+									"sid": 423864333985236,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetX",
+										"end-value": "iconosAnim.X-20",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 598597874903432
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 778736031161297,
+									"parameters": {
+										"variable": "type",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-one-property",
+									"objectClass": "iconosAnim",
+									"sid": 649560188372229,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "iconosAnim.Y+20",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 110817872725332
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "iconosAnim",
+									"sid": 989736800425010,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "iconosAnim.Y-20",
+										"time": "0.5",
+										"ease": "easeoutsine",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "yes",
+										"repeat-count": "1"
+									}
+								}
+							],
+							"sid": 137238256571539
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "LISTO-Configurar AutoHotKey para matar todas las apps (va listado manual de todas)\nVer si amerita poner el perfil de joytokey vacio en autohotkey\nLISTO-Tengo que ver cómo es la vuelta a la lanzadera para elegir otro juego sin tener que apretar select. Ver si puedo hacer que cree un archivo que mato con el autohotkey y evaluo en C3 si está o no via NWJS\nLISTO-Ver si puedo hacer que se ejecute exe con espacios a través de guardar en una variable\nLISTO-Agregar los íconos de tipo de juego (se hizo con texto)\nAgregar los videos como una lista\nAgregar funcionamiento tipo ruleta"
+		}
+	],
+	"sid": 639045517989295
+}

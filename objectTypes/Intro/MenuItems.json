@@ -1,0 +1,45 @@
+{
+	"name": "MenuItems",
+	"plugin-id": "Text",
+	"sid": 611610944138574,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "id",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 150394908485774
+		},
+		{
+			"name": "opciones",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 311948453269555
+		},
+		{
+			"name": "opcionId",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 315626872521455
+		},
+		{
+			"name": "Nopciones",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 627492636674802
+		},
+		{
+			"name": "toolTip",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 669983898973729
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

@@ -1,0 +1,1785 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "debugINT",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 204906931874045
+		},
+		{
+			"eventType": "variable",
+			"name": "debugSTRING",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 980911004216514
+		},
+		{
+			"eventType": "variable",
+			"name": "listedGames",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 684899345155832
+		},
+		{
+			"eventType": "variable",
+			"name": "selectedGameID",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 783642104274867
+		},
+		{
+			"eventType": "variable",
+			"name": "activeGame",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 783025723046066
+		},
+		{
+			"eventType": "variable",
+			"name": "state",
+			"type": "string",
+			"initialValue": "init",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 745576946595761
+		},
+		{
+			"eventType": "variable",
+			"name": "gamesDB",
+			"type": "string",
+			"initialValue": "{\t\"juegos\": [    ",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 751480461310961
+		},
+		{
+			"eventType": "variable",
+			"name": "quotation",
+			"type": "string",
+			"initialValue": "\"",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 448290152681323
+		},
+		{
+			"eventType": "variable",
+			"name": "TimerIDLING",
+			"type": "number",
+			"initialValue": "60",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 635532948074487
+		},
+		{
+			"eventType": "variable",
+			"name": "momentaneoPerfilJoy",
+			"type": "string",
+			"initialValue": "PS4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 909824535852239
+		},
+		{
+			"eventType": "variable",
+			"name": "momentaneoJoyKeyEXIT",
+			"type": "number",
+			"initialValue": "9",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 227805550743513
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 112956149520097
+				}
+			],
+			"actions": [
+				{
+					"id": "run-file",
+					"objectClass": "NWjs",
+					"sid": 161095141680619,
+					"parameters": {
+						"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\blockTaskBarDisable.ahk\""
+					}
+				},
+				{
+					"id": "run-file",
+					"objectClass": "NWjs",
+					"sid": 680533768662209,
+					"parameters": {
+						"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\blockKeyboard.ahk\""
+					}
+				},
+				{
+					"id": "run-file",
+					"objectClass": "NWjs",
+					"sid": 721522531562725,
+					"parameters": {
+						"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\autohotkeylanzadera.ahk\""
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "DebugTXT",
+					"sid": 599126225230120,
+					"parameters": {
+						"text": "\"\""
+					}
+				}
+			],
+			"sid": 839547748874456
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 962315647624132
+				}
+			],
+			"actions": [
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 819912692240807,
+					"parameters": {
+						"mode": "stretch-letterbox-scale",
+						"navigation-ui": "auto"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "CurtainDirector",
+					"sid": 904383344629628,
+					"parameters": {
+						"x": "0",
+						"y": "0"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "CurtainDirector",
+					"sid": 238355130208967,
+					"parameters": {
+						"width": "1280",
+						"height": "720"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "GameArt",
+					"sid": 182647907953874,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "list-files",
+					"objectClass": "NWjs",
+					"sid": 535507274558107,
+					"parameters": {
+						"path": "NWjs.AppFolder&\"juegos\""
+					}
+				},
+				{
+					"callFunction": "rebuildDBstep1",
+					"sid": 891087864157085
+				},
+				{
+					"id": "destroy",
+					"objectClass": "GameMenu",
+					"sid": 149861082986835
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 280999153925741,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "run-file",
+					"objectClass": "NWjs",
+					"sid": 622458460017886,
+					"disabled": true,
+					"parameters": {
+						"path": "NWjs.AppFolder&\"joytokey\\joytokey.exe Empty\""
+					}
+				},
+				{
+					"id": "start-timer",
+					"objectClass": "CurtainDirector",
+					"sid": 300362859667373,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "TimerIDLING",
+						"type": "once",
+						"tag": "\"IDLE\""
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "Joystick",
+					"sid": 712727052109646,
+					"parameters": {
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "Joystick",
+					"sid": 853583747628654,
+					"parameters": {
+						"y": "360"
+					}
+				}
+			],
+			"sid": 993718746741869
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 846840796036242,
+					"parameters": {
+						"interval-seconds": "random(2,6)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "IconAnim",
+					"sid": 778025299568952,
+					"parameters": [
+						"choose(1,2,3,4)"
+					]
+				}
+			],
+			"sid": 650054057736698
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Control",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 557342642430444,
+							"parameters": {
+								"variable": "state",
+								"comparison": 0,
+								"value": "\"ready\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 124237213124611,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "CurtainDirector",
+									"sid": 333356900164505,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"IDLE\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 192879456443722,
+									"parameters": {
+										"variable": "selectedGameID",
+										"value": "int(random(0,listedGames-1))"
+									}
+								},
+								{
+									"callFunction": "ArrangeGameMenu",
+									"sid": 816450225538591
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "CurtainDirector",
+									"sid": 492887373005804,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "TimerIDLING",
+										"type": "once",
+										"tag": "\"IDLE\""
+									}
+								}
+							],
+							"sid": 643401158256040
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 297317957230842,
+									"parameters": {
+										"key": 38
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 126870153569692,
+									"parameters": {
+										"gamepad": "0",
+										"button": "d-pad-up"
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 293343984849884,
+									"parameters": {
+										"gamepad": "1",
+										"button": "d-pad-up"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 587423758498898,
+									"parameters": {
+										"audio-file": "UI_Mechanical_Move_40",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 915272058242519,
+									"parameters": {
+										"variable": "selectedGameID",
+										"value": "SelectedGameID=ListedGames-1? 0:SelectedGameID+1"
+									}
+								},
+								{
+									"callFunction": "ArrangeGameMenu",
+									"sid": 647518035161411
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 896606485383909,
+									"parameters": {
+										"variable": "debugSTRING",
+										"value": "\"schtasks /create /f /tn Lanzadera /sc once /st \"&mid((Browser.ExecJS(\"Date()\")),16,6)&int(mid((Browser.ExecJS(\"Date()\")),22,2))+5&\" /tr c:\\lanzadera\\lanzadera.exe\""
+									}
+								}
+							],
+							"sid": 989897574730775,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 624252257891136,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "left-analog-y-axis",
+										"comparison": 2,
+										"value": "-10"
+									}
+								},
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 183497924051016,
+									"parameters": {
+										"gamepad": "1",
+										"axis": "left-analog-y-axis",
+										"comparison": 2,
+										"value": "-10"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 349405884058137,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-timer-running",
+											"objectClass": "CurtainDirector",
+											"sid": 300588221206012,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"CTmenuAxis\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "CurtainDirector",
+											"sid": 372676500862285,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "0.2",
+												"type": "once",
+												"tag": "\"CTmenuAxis\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 976489495060604,
+											"parameters": {
+												"audio-file": "UI_Mechanical_Move_40",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 752006513891386,
+											"parameters": {
+												"variable": "selectedGameID",
+												"value": "SelectedGameID=ListedGames-1? 0:SelectedGameID+1"
+											}
+										},
+										{
+											"callFunction": "ArrangeGameMenu",
+											"sid": 905442396769791
+										}
+									],
+									"sid": 568410778874373
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 471520038010984,
+									"parameters": {
+										"key": 40
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 191685042411598,
+									"parameters": {
+										"gamepad": "0",
+										"button": "d-pad-down"
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 681210475671595,
+									"parameters": {
+										"gamepad": "1",
+										"button": "d-pad-down"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 574497604311269,
+									"parameters": {
+										"audio-file": "UI_Mechanical_Move_40",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 109279249081065,
+									"parameters": {
+										"variable": "selectedGameID",
+										"value": "SelectedGameID=0? ListedGames-1:SelectedGameID-1"
+									}
+								},
+								{
+									"callFunction": "ArrangeGameMenu",
+									"sid": 967143054676400
+								}
+							],
+							"sid": 326315405677252,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 403114843054876,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "left-analog-y-axis",
+										"comparison": 4,
+										"value": "10"
+									}
+								},
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 377917347542577,
+									"parameters": {
+										"gamepad": "1",
+										"axis": "left-analog-y-axis",
+										"comparison": 4,
+										"value": "10"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 997620599674646,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-timer-running",
+											"objectClass": "CurtainDirector",
+											"sid": 747668244020978,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"CTmenuAxis\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "start-timer",
+											"objectClass": "CurtainDirector",
+											"sid": 813403892538568,
+											"behaviorType": "Timer",
+											"parameters": {
+												"duration": "0.2",
+												"type": "once",
+												"tag": "\"CTmenuAxis\""
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 770806412122279,
+											"parameters": {
+												"audio-file": "UI_Mechanical_Move_40",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 779698759758789,
+											"parameters": {
+												"variable": "selectedGameID",
+												"value": "SelectedGameID=0? ListedGames-1:SelectedGameID-1"
+											}
+										},
+										{
+											"callFunction": "ArrangeGameMenu",
+											"sid": 465508481436543
+										}
+									],
+									"sid": 957128783174302
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 373839052430808,
+									"parameters": {
+										"key": 13
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 453162732654309,
+									"parameters": {
+										"gamepad": "0",
+										"button": "button-a"
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 610250457210347,
+									"parameters": {
+										"gamepad": "1",
+										"button": "button-a"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 601392720195021,
+									"parameters": {
+										"audio-file": "Notification_futuristic_beep_05",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 213114977564618,
+									"parameters": {
+										"variable": "state",
+										"value": "\"inTransition\""
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "DebugTXT",
+									"sid": 316881372585221,
+									"parameters": {
+										"text": "\"runningGame \"&activeGame"
+									}
+								},
+								{
+									"callFunction": "RunGame",
+									"sid": 649503537473454
+								}
+							],
+							"sid": 955040310765946,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 613583788395674,
+									"parameters": {
+										"gamepad": "0",
+										"button": "right-shoulder-button"
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 561973807855847,
+									"parameters": {
+										"gamepad": "1",
+										"button": "right-shoulder-button"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 210534574977158,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 286877687601589,
+											"parameters": {
+												"variable": "selectedGameID",
+												"comparison": 2,
+												"value": "listedGames-5"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 611691096663472,
+											"parameters": {
+												"audio-file": "UI_Mechanical_Move_40",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 972528353576101,
+											"parameters": {
+												"variable": "selectedGameID",
+												"value": "SelectedGameID+5"
+											}
+										},
+										{
+											"callFunction": "ArrangeGameMenu",
+											"sid": 646439830806239
+										}
+									],
+									"sid": 942030610248683
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 136467229272923,
+									"parameters": {
+										"gamepad": "0",
+										"button": "left-shoulder-button"
+									}
+								},
+								{
+									"id": "on-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 819971345797005,
+									"parameters": {
+										"gamepad": "1",
+										"button": "left-shoulder-button"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 168125645592667,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 922557585606546,
+											"parameters": {
+												"variable": "selectedGameID",
+												"comparison": 4,
+												"value": "4"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 264669970621259,
+											"parameters": {
+												"audio-file": "UI_Mechanical_Move_40",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 769179493221409,
+											"parameters": {
+												"variable": "selectedGameID",
+												"value": "SelectedGameID-5"
+											}
+										},
+										{
+											"callFunction": "ArrangeGameMenu",
+											"sid": 802218795374776
+										}
+									],
+									"sid": 621540874696836
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 397062952633774,
+									"parameters": {
+										"key": 49
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 126903697260922,
+									"parameters": {
+										"key": 80
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Joystick",
+									"sid": 918708350805268
+								}
+							],
+							"sid": 605449736468681
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 403008946195412,
+									"parameters": {
+										"key": 68
+									}
+								},
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 962546270257839,
+									"parameters": {
+										"key": 80
+									}
+								}
+							],
+							"actions": [],
+							"sid": 169470385855205,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 276465092746796,
+											"parameters": {
+												"layer": "\"Debug\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 886310377033615,
+											"parameters": {
+												"group-name": "\"Debug\"",
+												"state": "deactivated"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 860705231912133,
+											"parameters": {
+												"layer": "\"Debug\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 197918391468172
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 626479563031359,
+											"parameters": {
+												"layer": "\"Debug\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-group-active",
+											"objectClass": "System",
+											"sid": 140720837083812,
+											"parameters": {
+												"group-name": "\"Debug\"",
+												"state": "activated"
+											}
+										},
+										{
+											"id": "write-file",
+											"objectClass": "NWjs",
+											"sid": 166326768371091,
+											"parameters": {
+												"path": "NWjs.AppFolder&\"\\debugJson.txt\"",
+												"contents": "gamesDB"
+											}
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 624208244688109,
+											"parameters": {
+												"layer": "\"Debug\"",
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 321682841785293
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "path-exists",
+							"objectClass": "NWjs",
+							"sid": 143400599264006,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\runninggame.txt\""
+							},
+							"isInverted": true
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 648328661212775,
+							"parameters": {
+								"variable": "state",
+								"comparison": 0,
+								"value": "\"inGameFull\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "CurtainDirector",
+							"sid": 108900192464338,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "TimerIDLING",
+								"type": "once",
+								"tag": "\"IDLE\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "Joystick",
+							"sid": 261253923434693,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 695931708460457,
+							"parameters": {
+								"variable": "state",
+								"value": "\"ready\""
+							}
+						}
+					],
+					"sid": 764298319329169
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 999715032735300,
+							"parameters": {
+								"gamepad": "0"
+							}
+						},
+						{
+							"id": "on-any-button-pressed",
+							"objectClass": "Gamepad",
+							"sid": 903610245542573,
+							"parameters": {
+								"gamepad": "1"
+							}
+						},
+						{
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 507984393544116
+						}
+					],
+					"actions": [
+						{
+							"id": "start-timer",
+							"objectClass": "CurtainDirector",
+							"sid": 516069076445279,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "TimerIDLING",
+								"type": "once",
+								"tag": "\"IDLE\""
+							}
+						}
+					],
+					"sid": 100998398393516,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 104551267724683,
+							"parameters": {
+								"key": 81
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 252979089696441,
+							"parameters": {
+								"key": 80
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 781968246773432,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\blockTaskBarEnable.ahk\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 295497656039709,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 113271285212602,
+							"parameters": {
+								"path": "\"taskkill /im autohotkey.exe\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 685091749811890,
+							"parameters": {
+								"path": "\"taskkill /im autohotkey.exe\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 218053962404928,
+							"parameters": {
+								"path": "\"taskkill /im autohotkey.exe\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 293423775185097,
+							"parameters": {
+								"path": "\"taskkill /im autohotkey.exe\""
+							}
+						},
+						{
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 652180285631187
+						}
+					],
+					"sid": 498313980707324
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 383091937492609,
+							"parameters": {
+								"key": 82
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 136118542138915,
+							"parameters": {
+								"key": 80
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 568130517052942,
+							"parameters": {
+								"path": "\"schtasks /create /f /tn Lanzadera /sc once /st \"&mid((Browser.ExecJS(\"Date()\")),16,6)&int(mid((Browser.ExecJS(\"Date()\")),22,2))+3&\" /tr c:\\lanzadera\\lanzadera.exe\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 337282925012670,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\autohotkey\\autohotkey.exe /f /r \"&NWjs.AppFolder&\"\\autohotkey\\blockTaskBarEnable.ahk\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 515694381099720,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 841939142935635
+						}
+					],
+					"sid": 691702476065287
+				}
+			],
+			"sid": 887337935235511
+		},
+		{
+			"eventType": "variable",
+			"name": "rebuildDBadv",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 426760650161796
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "RebuildDB",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 863126399973960,
+							"parameters": {
+								"tag": "\"rebuildDB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 145074314105029,
+							"parameters": {
+								"variable": "gamesDB",
+								"value": "\"{\"&AJAX.LastData"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 234843580300956,
+							"parameters": {
+								"variable": "rebuildDBadv",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "rebuildDBstep2",
+							"sid": 583271925816650
+						}
+					],
+					"sid": 559374228243140
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "AJAX",
+							"sid": 447002382999816,
+							"parameters": {
+								"tag": "\"rebuildDB\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 594781780525256,
+							"parameters": {
+								"variable": "gamesDB",
+								"value": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 809045888907599,
+							"parameters": {
+								"variable": "rebuildDBadv",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "rebuildDBstep2",
+							"sid": 921725204398433
+						}
+					],
+					"sid": 163786946377693
+				},
+				{
+					"functionName": "rebuildDBstep1",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 974222208200531,
+							"disabled": true,
+							"parameters": {
+								"variable": "debugINT",
+								"value": "NWjs.ListCount"
+							}
+						}
+					],
+					"sid": 120214022985262,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "path-exists",
+									"objectClass": "NWjs",
+									"sid": 718009244875855,
+									"parameters": {
+										"path": "NWjs.AppFolder&\"\\juegos\\\"&NWjs.ListAt(rebuildDBadv)&\"\\\"&\"datosDB.txt\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 869894510795645,
+									"parameters": {
+										"tag": "\"rebuildDB\"",
+										"url": "NWjs.AppFolder&\"\\juegos\\\"&NWjs.ListAt(rebuildDBadv)&\"\\\"&\"datosDB.txt\""
+									}
+								}
+							],
+							"sid": 638031394833397
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "path-exists",
+									"objectClass": "NWjs",
+									"sid": 831864220974455,
+									"parameters": {
+										"path": "NWjs.AppFolder&\"\\juegos\\\"&NWjs.ListAt(rebuildDBadv)&\"\\\"&\"datosDB.txt\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 704269737132533,
+									"parameters": {
+										"variable": "rebuildDBadv",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "CheckListDB",
+									"sid": 561433972183602
+								},
+								{
+									"id": "append-text",
+									"objectClass": "DebugTXT",
+									"sid": 944856636697532,
+									"parameters": {
+										"text": "newline&NWjs.ListAt(rebuildDBadv)&\" -> Falta archivo baseDB.txt\""
+									}
+								}
+							],
+							"sid": 370186565155533
+						}
+					]
+				},
+				{
+					"functionName": "rebuildDBstep2",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 899927023622049,
+							"parameters": {
+								"variable": "gamesDB",
+								"value": "\"\"\"carpeta\"\"\"&\" : \"&quotation&NWjs.ListAt(rebuildDBadv-1)&quotation&\",\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 967623175703598,
+							"parameters": {
+								"variable": "gamesDB",
+								"value": "\"\"\"id\"\"\"&\" : \"&rebuildDBadv-1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 459421754782453,
+							"parameters": {
+								"variable": "gamesDB",
+								"value": "\"},\""
+							}
+						},
+						{
+							"callFunction": "CheckListDB",
+							"sid": 363169086698313
+						}
+					],
+					"sid": 659320454345517
+				},
+				{
+					"functionName": "CheckListDB",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionCopyPicked": false,
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 547126584972968,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 426655110109379,
+									"parameters": {
+										"variable": "rebuildDBadv",
+										"comparison": 2,
+										"value": "NWjs.ListCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "rebuildDBstep1",
+									"sid": 804656927382119
+								}
+							],
+							"sid": 709338388667918
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 265599529564942,
+									"parameters": {
+										"variable": "rebuildDBadv",
+										"comparison": 0,
+										"value": "NWjs.ListCount"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 658827503120397,
+									"parameters": {
+										"variable": "gamesDB",
+										"value": "left(gamesDB, len(gamesDB)-1)"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 688883975644400,
+									"parameters": {
+										"variable": "gamesDB",
+										"value": "\"]}\""
+									}
+								},
+								{
+									"id": "parse",
+									"objectClass": "JSON",
+									"sid": 946281839253555,
+									"parameters": {
+										"data": "gamesDB"
+									}
+								},
+								{
+									"callFunction": "BuildMenu",
+									"sid": 247888296865006
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 634358529468316,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 892752939027122,
+									"parameters": {
+										"variable": "state",
+										"value": "\"ready\""
+									}
+								}
+							],
+							"sid": 133807366206616
+						}
+					]
+				}
+			],
+			"sid": 797402097185129
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": false,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 213263425284766,
+							"parameters": {
+								"key": 49
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 282209210814758,
+							"parameters": {
+								"path": "\"D:\\Construct3NWJS\\juegos\\deepbeyond\\deep beyond.exe\""
+							}
+						}
+					],
+					"sid": 757860509126200
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 853241819787335,
+							"parameters": {
+								"key": 50
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "DebugTXT",
+							"sid": 552213169435307,
+							"parameters": {
+								"text": "\"run app 2\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 493750579302204,
+							"parameters": {
+								"variable": "activeGame",
+								"value": "\"flora.exe\""
+							}
+						},
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 673198956440486,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\juegos\\flora\\flora.exe\""
+							}
+						}
+					],
+					"sid": 194688160645202
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 518344636907752,
+							"parameters": {
+								"key": 48
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "DebugTXT",
+							"sid": 118759557816343,
+							"parameters": {
+								"text": "\"ListFolders\""
+							}
+						},
+						{
+							"id": "list-files",
+							"objectClass": "NWjs",
+							"sid": 240416761502885,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\juegos\\subcon\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DebugTXT",
+							"sid": 435902601529063,
+							"parameters": {
+								"text": "NWjs.ListCount"
+							}
+						}
+					],
+					"sid": 387629298201191
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 651098485323290,
+							"parameters": {
+								"key": 57
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "DebugTXT",
+							"sid": 836068928244059,
+							"parameters": {
+								"text": "\"ListFolders-File\""
+							}
+						},
+						{
+							"id": "list-files",
+							"objectClass": "NWjs",
+							"sid": 188702517356221,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\juegos\\subcon\\*.exe\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DebugTXT",
+							"sid": 576301243052390,
+							"parameters": {
+								"text": "NWjs.ListCount"
+							}
+						}
+					],
+					"sid": 379536092517822
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 432780993536644,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "run-file",
+							"objectClass": "NWjs",
+							"sid": 697731548822561,
+							"parameters": {
+								"path": "NWjs.AppFolder&\"\\juegos\\BeaconOfNeyda\\Beacon\"&\" \"& \"Of\"&\" \"&\"Neyda.exe\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "DebugTXT",
+							"sid": 214386830697951,
+							"parameters": {
+								"text": "NWjs.AppFolder&\"\\juegos\\BeaconOfNeyda\\Beacon\"&\" \"& \"Of\"&\" \"&\"Neyda.exe\""
+							}
+						}
+					],
+					"sid": 902345891979552
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 336269852999102,
+							"parameters": {
+								"key": 13
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "JSON",
+							"sid": 936062765404478,
+							"disabled": true,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 328705188677684,
+							"parameters": {
+								"variable": "activeGame",
+								"value": "DebugCommand.Text"
+							}
+						}
+					],
+					"sid": 130265515165851
+				}
+			],
+			"sid": 212261698160354
+		}
+	],
+	"sid": 483986336326120
+}

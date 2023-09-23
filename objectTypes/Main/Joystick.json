@@ -1,0 +1,176 @@
+{
+	"name": "Joystick",
+	"plugin-id": "Sprite",
+	"sid": 845464609409595,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 101914049945074
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 757,
+						"height": 480,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1232777,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 759,
+						"height": 484,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "C:\\Users\\Berne\\Downloads\\ps4joysalir.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8443877,
+						"collisionPoly": {
+							"points": [
+								0.13570487483530963,
+								0.05578512396694215,
+								0.5,
+								0.07231404958677685,
+								0.8695652173913043,
+								0.045454545454545456,
+								0.9657444005270093,
+								0.42355371900826444,
+								0.9657444005270093,
+								0.9504132231404959,
+								0.5,
+								0.6446280991735537,
+								0.03425559947299078,
+								0.9483471074380165,
+								0.03689064558629776,
+								0.42355371900826444
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 759,
+						"height": 484,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "C:\\Users\\Berne\\Downloads\\ps4joysalir2.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 442975,
+						"collisionPoly": {
+							"points": [
+								0.13570487483530963,
+								0.05578512396694215,
+								0.5,
+								0.07231404958677685,
+								0.8695652173913043,
+								0.045454545454545456,
+								0.9657444005270093,
+								0.42355371900826444,
+								0.9657444005270093,
+								0.9504132231404959,
+								0.5,
+								0.6446280991735537,
+								0.03425559947299078,
+								0.9483471074380165,
+								0.03689064558629776,
+								0.42355371900826444
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 640,
+						"height": 480,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "C:\\Users\\Berne\\Downloads\\ps4joysalir3.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 856439,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9984375,
+								0,
+								0.9984375,
+								0.5,
+								0.9984375,
+								0.9979166666666667,
+								0.5,
+								0.9979166666666667,
+								0,
+								0.9979166666666667,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					},
+					{
+						"width": 640,
+						"height": 480,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "C:\\Users\\Berne\\Downloads\\ps4joysalir4.png",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9594993,
+						"collisionPoly": {
+							"points": [
+								0,
+								0,
+								0.5,
+								0,
+								0.9984375,
+								0,
+								0.9984375,
+								0.5,
+								0.9984375,
+								0.9979166666666667,
+								0.5,
+								0.9979166666666667,
+								0,
+								0.9979166666666667,
+								0,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 576101935775904,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
